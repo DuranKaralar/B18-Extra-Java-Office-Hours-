@@ -1,7 +1,5 @@
 package day2_StringsAndLoops;
 
-import java.io.OutputStream;
-
 public class Palindrome {
     public static void main(String[] args) {
         System.out.println(isPalindrome("racecar"));
