@@ -1,7 +1,7 @@
 package day3_StringsAndLoops;
 
 public class CatDogClass {
-    
+
     public boolean catDog(String str) {
 
         int cat = 0;
