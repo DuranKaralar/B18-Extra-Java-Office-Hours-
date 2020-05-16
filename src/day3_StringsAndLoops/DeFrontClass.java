@@ -1,7 +1,7 @@
 package day3_StringsAndLoops;
 
 public class DeFrontClass {
-    
+
     public String deFront(String str) {
 
         String word = str.substring(2);
@@ -16,5 +16,20 @@ public class DeFrontClass {
 
         return word;
     }
+
+    public String deFront2(String str) {
+
+        if(str.startsWith("ab")){
+            return str;
+        } else if(str.startsWith("a")) {
+            return "a" + str.substring(2);
+        } else if(str.charAt(1) == 'b') {
+            return "b" + str.substring(2);
+        } else {
+            return str.substring(2);
+        }
+    }
+
+
 
 }
