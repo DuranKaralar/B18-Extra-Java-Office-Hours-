@@ -1,6 +1,8 @@
 package day5_ArraysAndArrayList;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class AddingNumbers {
 
@@ -13,6 +15,15 @@ public class AddingNumbers {
     and return the sum of all the numbers in the given ArrayList
      */
 
+
+    public static void main(String[] args) {
+
+        int [] a = {1,3,2,4};
+        System.out.println(sumElements(a));
+        ArrayList <Integer> list = new ArrayList<>(Arrays.asList(1,3,12));
+        System.out.println(sumElements(list));
+    }
+
     // 1
 
     public static int sumElements(int [] arr) {
@@ -24,6 +35,8 @@ public class AddingNumbers {
         }
         return sum;
     }
+
+    // 2
 
     public static int sumElements(ArrayList<Integer> list) {
 
