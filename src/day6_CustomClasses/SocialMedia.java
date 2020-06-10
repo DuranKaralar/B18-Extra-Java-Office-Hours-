@@ -22,9 +22,9 @@ package day6_CustomClasses;
 
 public abstract class SocialMedia {
 
-    String personalUrl;
-    int accountLength;
-    static String platform;
+    protected String personalUrl;
+    protected int accountLength;
+    protected static String platform;
 
     public abstract boolean directMessage(String username, String message);
 
