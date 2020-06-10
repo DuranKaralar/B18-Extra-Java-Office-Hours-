@@ -22,6 +22,8 @@ package day6_CustomClasses;
 
  */
 
+import javax.swing.*;
+
 public class FacebookUser extends SocialMedia {
 
     private String username;
@@ -40,6 +42,15 @@ public class FacebookUser extends SocialMedia {
         personalUrl = "Facebook.com/" + username;
         accountLength = 0;
     }
+
+    public FacebookUser(String username, String password, String fullName) {
+        this(username,password);
+        setFullName(fullName);
+    }
+
+
+
+
 
     public String getUsername() {
         return username;
@@ -67,7 +78,24 @@ public class FacebookUser extends SocialMedia {
     }
 
     public void setFullName(String fullName) {
-        this.fullName = fullName;
+                            // james6 bond
+        boolean isValid = true;
+        String check = fullName.replace(" ","");
+        for(int i=0; i < check.length(); i++) {
+
+            if(!Character.isLetter(check.charAt(i))){
+                isValid = false;
+                break;
+            }
+
+        }
+
+        if (isValid){
+            this.fullName = fullName;
+        } else {
+            System.out.println("Not a valid name");
+            this.fullName = "no name";
+        }
     }
 
     public int getAge() {
