@@ -35,6 +35,8 @@ package day6_CustomClasses;
 
  */
 
+import java.util.ArrayList;
+
 public class FacebookUser extends SocialMedia implements Groups{
 
     private String username;
@@ -43,6 +45,7 @@ public class FacebookUser extends SocialMedia implements Groups{
     private int age;
     private int numberOfFriends;
     private int numberOfGroups;
+    private ArrayList<Post> allPosts;
 
     static {
         platform = "Facebook";
@@ -53,6 +56,7 @@ public class FacebookUser extends SocialMedia implements Groups{
         setPassword(password); // kesda
         personalUrl = "Facebook.com/" + username;
         accountLength = 0;
+        allPosts = new ArrayList<>();
     }
 
     public FacebookUser(String username, String password, String fullName) {
@@ -156,9 +160,20 @@ public class FacebookUser extends SocialMedia implements Groups{
         return true;
     }
 
+    public ArrayList<Post> getAllPosts() {
+        return allPosts;
+    }
+
+    public void setAllPosts(ArrayList<Post> allPosts) {
+        this.allPosts = allPosts;
+    }
+
     @Override
     public boolean createPost(String body) {
-        return false;
+
+        allPosts.add(new Post(body));
+
+        return true;
     }
 
     @Override
