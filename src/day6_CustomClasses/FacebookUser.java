@@ -22,15 +22,14 @@ package day6_CustomClasses;
 
  */
 
-import javax.swing.*;
-
-public class FacebookUser extends SocialMedia {
+public class FacebookUser extends SocialMedia implements Groups{
 
     private String username;
     private String password;
     private String fullName;
     private int age;
     private int numberOfFriends;
+    private int numberOfGroups;
 
     static {
         platform = "Facebook";
@@ -48,9 +47,11 @@ public class FacebookUser extends SocialMedia {
         setFullName(fullName);
     }
 
-
-
-
+    public FacebookUser(String username, String password, String fullName, int age, int numberOfFriends) {
+        this(username,password, fullName);
+        setAge(age);
+        setNumberOfFriends(numberOfFriends);
+    }
 
     public String getUsername() {
         return username;
@@ -103,6 +104,11 @@ public class FacebookUser extends SocialMedia {
     }
 
     public void setAge(int age) {
+
+        if(age < 0) {
+            System.out.println("Invalid age");
+            age = 0;
+        }
         this.age = age;
     }
 
@@ -111,7 +117,20 @@ public class FacebookUser extends SocialMedia {
     }
 
     public void setNumberOfFriends(int numberOfFriends) {
-        this.numberOfFriends = numberOfFriends;
+        if(numberOfFriends > 0) {
+            this.numberOfFriends = numberOfFriends;
+        } else {
+            System.out.println("Invalid number of friends");
+            this.numberOfFriends = 0;
+        }
+    }
+
+    public int getNumberOfGroups() {
+        return numberOfGroups;
+    }
+
+    public void setNumberOfGroups(int numberOfGroups) {
+        this.numberOfGroups = numberOfGroups;
     }
 
     @Override
@@ -127,5 +146,19 @@ public class FacebookUser extends SocialMedia {
     @Override
     public void notification(int time) {
 
+    }
+
+    @Override
+    public boolean joinGroup(String name) {
+        System.out.println(fullName + " welcome to " + name);
+        numberOfGroups++;
+        return true;
+    }
+
+    @Override
+    public boolean leaveGroup(String name) {
+        System.out.println(fullName + " do you really want to leave? " + name);
+        numberOfGroups--;
+        return true;
     }
 }
