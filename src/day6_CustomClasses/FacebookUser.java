@@ -19,6 +19,19 @@ package day6_CustomClasses;
 (*) Overload the constructor to accept username, password, the user’s name, age and number of friends.
 	- Only store the age and number of friends into the variables if they are valid numbers ( No negative numbers ). If they are invalid print “Invalid (age/number of friends) and keep the values as the default of 0.
 
+(*) Implement all methods coming from Social Media class
+
+	(*) Direct messaging(String username, String message)
+		- print = %message sent to %username
+
+	(*) Post(String body)
+		- Should be added to the the ArrayList of Posts of the user
+
+	(*) Notifications(int time)
+		- Checks the current time. If the time is between 8 am - 5 pm print "Notification", otherwise print "Sleep mode"
+
+(*) Override the toString method to print all of the information of a Facebook user when they are searched.
+
 
  */
 
@@ -135,7 +148,12 @@ public class FacebookUser extends SocialMedia implements Groups{
 
     @Override
     public boolean directMessage(String username, String message) {
-        return false;
+
+        if(message.isEmpty()) return false;
+
+        System.out.println("Sent " + message + " to " + username);
+
+        return true;
     }
 
     @Override
