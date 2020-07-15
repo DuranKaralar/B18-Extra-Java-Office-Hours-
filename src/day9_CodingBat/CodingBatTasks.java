@@ -102,4 +102,21 @@ public class CodingBatTasks {
 
     }
 
+    public Map<String, Integer> wordCount(String[] strings) {
+
+        Map<String, Integer> count = new HashMap<>();
+
+        for(String word: strings) {
+
+            if(!count.containsKey(word)) {
+                count.put(word, 0);
+            }
+
+            count.put(word, count.get(word) + 1);
+
+        }
+
+        return count;
+    }
+
 }
