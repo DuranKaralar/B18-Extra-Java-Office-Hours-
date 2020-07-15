@@ -1,5 +1,6 @@
 package day9_CodingBat;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class CodingBatTasks {
@@ -47,7 +48,7 @@ public class CodingBatTasks {
 
         return map;
     }
-    
+
     public Map<String, String> mapAB4(Map<String, String> map) {
 
         if(map.containsKey("a") && map.containsKey("b")){
@@ -67,5 +68,38 @@ public class CodingBatTasks {
 
     }
 
+    public Map<String, Integer> word0(String[] strings) {
+
+        Map<String, Integer> map = new HashMap<>();
+
+        for(String each: strings) {
+            map.put(each, 0);
+        }
+
+        return map;
+    }
+
+
+    public Map<String, Integer> wordLen(String[] strings) {
+        Map<String, Integer> map = new HashMap<>();
+
+        for(String each : strings) {
+            map.put(each , each.length());
+        }
+
+        return map;
+    }
+
+    public Map<String, String> pairs(String[] strings) {
+
+        Map<String, String> map = new HashMap<>();
+
+        for(String word: strings) {
+            map.put( word.substring(0,1) , word.substring(word.length()-1));
+        }
+
+        return map;
+
+    }
 
 }
