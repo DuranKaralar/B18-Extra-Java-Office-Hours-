@@ -51,6 +51,25 @@ public class CodingBatTasks {
     }
 
 
+    public Map<String, Boolean> wordMultiple(String[] strings) {
+
+        Map<String, Boolean> map = new HashMap<>();
+
+        for(String each : strings) {
+
+            if(!map.containsKey(each)) {
+                map.put(each, false);
+            } else {
+                map.put(each, true);
+            }
+
+        }
+
+        return map;
+    }
+    
+
+
 
 
 
